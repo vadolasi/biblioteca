@@ -1,0 +1,41 @@
+<a routerLink="/emprestimos" routerLinkActive="active" ariaCurrentWhenActive="page"
+  class="fixed top-20 left-20 bg-blue-700 rounded-full flex items-center justify-center aspect-square w-10 h-10">
+  <fa-icon [icon]="faArrowLeft" class="text-white text-2xl"></fa-icon>
+</a>
+
+<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+  <h1 class="text-center font-bold text-3xl">ADICIONAR EMPRÉSTIMO</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+      <div class="sm:col-span-2">
+        <label for="readerId" class="block mb-2 text-sm font-medium text-gray-900 ">ID do leitor</label>
+        <input type="number" min="1" step="1" pattern="[0-9]*" inputmode="numeric" name="readerId" id="readerId"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5      "
+          required="" formControlName="readerId">
+      </div>
+      <div class="sm:col-span-2">
+        <label for="bookId" class="block mb-2 text-sm font-medium text-gray-900 ">ID do livro</label>
+        <input type="number" name="bookId" id="bookId"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5      "
+          required="" formControlName="bookId">
+      </div>
+      <div class="sm:col-span-2">
+        <label for="estimatedReturnDate" class="block mb-2 text-sm font-medium text-gray-900 ">Data de retorno</label>
+        <input type="date" name="estimatedReturnDate" id="estimatedReturnDate"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5      "
+          required="" formControlName="estimatedReturnDate" min="{{ tomorrow | date: 'yyyy-MM-dd' }}">
+      </div>
+    </div>
+    <button type="submit"
+      class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200"
+      [ngClass]="{
+        'bg-blue-700 hover:bg-blue-800': form.valid,
+        'bg-blue-400 cursor-not-allowed': form.invalid
+      }"
+        [disabled]="form.invalid"
+      >
+      Cadastrar
+    </button>
+  </form>
+</div>

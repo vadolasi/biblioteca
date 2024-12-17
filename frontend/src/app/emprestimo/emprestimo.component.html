@@ -1,0 +1,31 @@
+<a routerLink="/emprestimos" routerLinkActive="active" ariaCurrentWhenActive="page"
+  class="fixed top-20 left-20 bg-blue-700 rounded-full flex items-center justify-center aspect-square w-10 h-10">
+  <fa-icon [icon]="faArrowLeft" class="text-white text-2xl"></fa-icon>
+</a>
+
+<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+  <h1 class="text-center font-bold text-3xl">DETALHAR EMPRÉSTIMO</h1>
+
+  <h3 class="mt-8 text-xl font-semibold leading-none text-gray-900 md:text-2xl">Data de empréstimo</h3>
+  <p class="text-gray-500">{{ emprestimo?.date | date: 'dd/MM/yyyy' }}</p>
+  <h3 class="mt-8 text-xl font-semibold leading-none text-gray-900 md:text-2xl">Data de devolução prevista</h3>
+  <p class="text-gray-500">{{ emprestimo?.estimatedReturnDate | date: 'dd/MM/yyyy' }}</p>
+
+  <h2 class="mt-8 text-xl font-semibold leading-none text-gray-900 md:text-2xl">Leitor</h2>
+  <div class="flex items-center space-x-4 mt-8">
+    <img class="w-40 h-40 rounded-full" [src]="emprestimo?.reader?.picture" alt="Jese image">
+    <h2 class="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl">{{ emprestimo?.reader?.name }}</h2>
+  </div>
+  <h2 class="mt-8 text-xl font-semibold leading-none text-gray-900 md:text-2xl">Livro</h2>
+  <div class="flex items-center space-x-4 mt-8">
+    <img class="w-40" [src]="emprestimo?.book?.picture" alt="Jese image">
+    <div>
+      <h2 class="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl">{{ emprestimo?.book?.title }}</h2>
+      <h3 class="text-gray-500">{{ emprestimo?.book?.author }}</h3>
+    </div>
+  </div>
+  <button type="button" (click)="devolver()"
+  class="inline-flex mt-10 items-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+    Livro devolvido
+  </button>
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "biblioteca",
+  "module": "index.ts",
+  "type": "module",
+  "packageManager": "bun@1.1.33",
+  "scripts": {
+    "dev": "turbo dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}

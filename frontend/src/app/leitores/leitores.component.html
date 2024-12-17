@@ -1,0 +1,66 @@
+<div class="p-10 flex flex-col items-center justify-center min-h-screen w-full gap-20">
+  <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
+    class="fixed top-20 left-20 bg-blue-700 rounded-full flex items-center justify-center aspect-square w-10 h-10">
+    <fa-icon [icon]="faArrowLeft" class="text-white text-2xl"></fa-icon>
+  </a>
+
+  <h1 class="text-center font-bold text-3xl">LEITORES</h1>
+
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-5">
+    <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">
+      <label for="table-search" class="sr-only">Pesquisar</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+          </svg>
+        </div>
+        <input type="text" id="table-search-users"
+          class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Pesquisar leitores">
+      </div>
+    </div>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            ID
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Foto
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Nome
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Ação
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b hover:bg-gray-100" *ngFor="let leitor of leitores">
+          <th scope="row" class="px-6 py-4">
+            {{ leitor.id }}
+          </th>
+          <th scope="row" class="px-6 py-4">
+            <img class="w-10 h-10 rounded-full" [src]="leitor.picture" alt="Jese image">
+          </th>
+          <th scope="col" class="px-6 py-3">
+            {{ leitor.name }}
+          </th>
+          <td class="px-6 py-4">
+            <a [routerLink]="'/leitores/' + leitor.id" routerLinkActive="active" ariaCurrentWhenActive="page"
+              class="font-medium text-blue-600 hover:underline">Visualizar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="w-ull flex justify-end mt-4">
+      <a routerLink="/leitores/adicionar" routerLinkActive="active" ariaCurrentWhenActive="page"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Adicionar
+        leitor</a>
+    </div>
+  </div>
+</div>

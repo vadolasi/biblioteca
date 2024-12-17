@@ -1,0 +1,22 @@
+<a routerLink="/catalogo" routerLinkActive="active" ariaCurrentWhenActive="page"
+  class="fixed top-20 left-20 bg-blue-700 rounded-full flex items-center justify-center aspect-square w-10 h-10">
+  <fa-icon [icon]="faArrowLeft" class="text-white text-2xl"></fa-icon>
+</a>
+
+<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+  <h1 class="text-center font-bold text-3xl">DETALHAR LIVRO</h1>
+
+  <div class="flex items-center justify-center space-x-4 mt-8">
+    <img class="w-40" [src]="livro?.picture" alt="Capa">
+    <div>
+      <h2 class="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl">{{ livro?.title }}</h2>
+      <h3 class="mb-2 text-lg leading-none text-gray-900 md:text-xl">{{ livro?.author }}</h3>
+      <h3 class="mb-2 text-lg leading-none text-green-900 md:text-xl" *ngIf="livro?.available">
+        Disponível
+      </h3>
+      <h3 class="mb-2 text-lg leading-none text-red-900 md:text-xl" *ngIf="!livro?.available">
+        Indisponível
+      </h3>
+    </div>
+  </div>
+</div>

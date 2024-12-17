@@ -1,0 +1,22 @@
+<div class="p-10 flex flex-col items-center justify-center min-h-screen w-full gap-20">
+  <h1 class="text-center font-bold text-3xl">BIBLIOTECA</h1>
+  <div class="grid md:grid-cols-3 gap-10">
+    <a routerLink="/catalogo" class="flex flex-col gap-5 text-center items-center">
+      <div class="bg-blue-700 rounded-full flex items-center justify-center aspect-square w-1/2">
+        <fa-icon [icon]="faBook" class="text-white text-3xl"></fa-icon>
+      </div>
+      CATÁLOGO DE LIVROS
+    </a>
+    <a routerLink="/leitores" class="flex flex-col gap-5 text-center items-center">
+      <div class="bg-blue-700 rounded-full flex items-center justify-center aspect-square w-1/2">
+        <fa-icon [icon]="faUser" class="text-white text-3xl"></fa-icon>
+      </div>
+      LEITORES
+    </a>
+    <a routerLink="/emprestimos" class="flex flex-col gap-5 text-center items-center">
+      <div class="bg-blue-700 rounded-full flex items-center justify-center aspect-square w-1/2">
+        <fa-icon [icon]="faHandshake" class="text-white text-3xl"></fa-icon>
+      </div>
+      EMPRÉSTIMOS
+    </a>
+</div>
